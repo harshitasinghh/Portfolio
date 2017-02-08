@@ -1,0 +1,547 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="assets/css/hexagons.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<style>
+*{margin:0;padding:0;}
+#divid{
+	width:100%;
+	height:650px;
+	-webkit-transform:skew(0,6deg);
+	margin-top:50px;
+	position:relative;
+	z-index:1;
+}
+#divid img{opacity:0.8;position:absolute}
+#divreverse{
+	width:100%;
+	height:420px;
+	margin-top:70px;
+	-webkit-transform:skew(0,-6deg);
+	float:left;
+}
+#divpart1{
+	width:50%;
+	height:420px;
+	position:absolute;
+	z-index:2;
+	float:left;
+	color:#FFF;
+	
+}
+#divpart2{
+	width:40%;
+	height:420px;
+	position:absolute;
+	float:right;
+	margin-left:50%; 
+	background:url(images/apple.png) no-repeat;
+    z-index:2;
+	top:30%;
+	left:5%;
+	background-size:550px;
+}
+.icons:hover{
+	color:#00bff3;
+}
+.button{
+	width:150px;
+	height:50px;
+	background:#00bff3;
+	color:#FFF;
+	font-family:'Comic Sans MS', cursive;
+	font-size:24px;
+	border:none;
+	border-radius:5%;
+}
+.button:hover{
+	border:5px solid #00bff3;
+	background:#FFF;
+	color:#00bff3;
+}
+	
+.dividwhite{
+	width:100%;
+	height:250px;
+	-webkit-transform:skew(0,6deg);
+	position:relative;
+}
+.divreversewhite{
+	width:100%;
+	height:100px;
+	margin-top:5%;
+	-webkit-transform:skew(0,-6deg);
+	float:left;
+}
+.di
+{ -webkit-transform:skew(0,-6deg)}
+.divid1{
+	width:100%;
+	height:750px;
+	-webkit-transform:skew(0,6deg);
+	position:relative;
+	z-index:1;
+}
+.divid1 img{
+	opacity:0.8;
+	position:absolute;
+}
+.divreverse1{
+	width:100%;
+	height:610px;
+	margin-top:70px;
+	-webkit-transform:skew(0,-6deg);
+	float:left;
+}
+.hexagon2
+{   width: 120px;
+    height: 69px;
+    background: #00bff3;
+    position: relative;
+}
+
+.hexagon2:before
+{   content: "";
+    position: absolute;
+    top: -38px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 63px solid transparent;
+    border-bottom: 38px solid #00bff3;
+}
+
+.hexagon2:after
+{   content: "";
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 35px solid #00bff3;
+}
+.hexagon3
+{   width: 98px;
+    height: 60px;
+    background: #fff;
+    position: relative;
+	margin:0 auto;color:#00bff3;
+}
+
+.hexagon3:before
+{   content: "";
+    position: absolute;
+    top: -25px;
+    left:1px;
+    width: 0;
+    height: 0;
+    border-left: 47px solid transparent;
+    border-right: 47px solid transparent;
+    border-bottom: 25px solid #fff;
+}
+
+.hexagon3:after
+{   content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top:30px solid #fff;
+	
+}
+
+.hexagon3:hover:after{  border-top-color:#00bff3;  -webkit-transition:border-top-color 0.5s}
+.hexagon3:hover:before{border-bottom-color:#00bff3;-webkit-transition:border-bottom-color 0.5s}
+.hexagon3:hover{background:#00bff3;-webkit-transition: background 0.1s, color 0.1s;color:#fff}
+.hexagon4
+{   overflow: hidden;
+    visibility: hidden;
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    transform: rotate(120deg);
+    cursor: pointer;
+}
+
+.hexagon-in1
+{   overflow: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -o-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+}
+
+.hexagon-in2
+{   width: 100%;
+    height: 100%;
+	
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image:url(images/1.jpeg);
+    visibility: visible;
+    -webkit-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -o-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+}
+
+.hexagon-in2:hover
+{   background-image:url(images/2.jpeg);
+
+-webkit-transition: background-image 1s;
+
+}
+.hexagon5
+{   width: 400px;
+    height: 200px;
+}
+.stay-in-place {
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    position: absolute;
+}
+.move-in-to-place {
+    position: absolute;
+    bottom: -100%;
+    height : 100%;
+    width : 100%;
+    background: #00bff3;
+    opacity:0;
+}
+.box {
+    position: relative;
+    width:200px;
+    height:200px;
+    overflow:hidden;
+}
+.box:hover .move-in-to-place {
+    bottom: 0;
+    -webkit-transition: all 1s, -webkit-transform 1s;
+    transition: all 1s, transform 1s;
+    width:100%;
+    height:100%;
+    opacity:0.9;
+}
+
+.p2{
+	width:225px; height:35px; color:#918C8C; border-radius:3%; border:none; font-size:15px; font-family:"Comic Sans MS", cursive;
+	}
+.p2:onfocus{ border: 1px solid #21c2a3}	
+.p3{
+	width:470px; height:35px; color:#918C8C; border-radius:3%; border:none; font-size:15px; font-family:"Comic Sans MS", cursive; margin-top:20px}
+.p3:onfocus{ border: 1px solid #21c2a3}	
+.p4{
+	width:470px; height:120px; color:#918C8C; border-radius:3%; border:none; font-size:15px; font-family:"Comic Sans MS", cursive; margin-top:20px; }
+.p4:onfocus{ border: 1px solid #21c2a3}
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 99999999; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+</style>
+</head>
+
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+
+<div style="float:right; margin-right:2%;font-size:28px;" id="fourth" >
+<i class="fa fa-bars icons" aria-hidden="true" style="margin-left:15px" id="clic" onclick="openNav()"></i>
+<i class="fa fa-cog icons" aria-hidden="true" style="margin-left:15px"></i>
+<i class="fa fa-sliders icons" aria-hidden="true" style="margin-left:15px"></i>
+<i class="fa fa-search icons" aria-hidden="true" style="margin-left:15px"></i>
+<i class="fa fa-phone-square icons" aria-hidden="true" style="margin-left:15px"></i>
+<i class="fa fa-music icons" aria-hidden="true" style="margin-left:15px"></i>
+</div><!--end of icons-->
+
+<div id="divid"><img src="images/laptop2.jpg" width="100%" height="650px">
+<div id="divreverse">
+<div id="divpart1"><span style="margin-left:15%;font-family:'Comic Sans MS', cursive; font-size:28px;"><b>oneGenius</b></span><br><br><br><br>
+<span style="margin-left:15%;margin-top:10%;font-family:'Comic Sans MS', cursive; font-size:32px;">We design and build</span><br><br>
+<span style="margin-left:15%;margin-top:10%;font-family:'Comic Sans MS', cursive; font-size:35px;">BEAUTIFUL AND RESPONSIVE</span><br><br>
+<span style="margin-left:15%;margin-top:10%;font-family:'Comic Sans MS', cursive; font-size:32px;">applications for your business</span><br><br><br><br>
+<input type="button" value="Join Us" class="button" style="margin-left:15%;">
+
+</div><!--end of divpart1-->
+<div id="divpart2"></div><!--end of divpart2-->
+</div>
+<!--end of divreverse-->
+<div style="margin-left:47%;; z-index:99999 !important; position:absolute; margin-top:635px" class="di" > <a href="#zero"><img src="images/d1.png" alt="" /></a> </div>
+</div><!--end of divid-->
+<div class="dividwhite">
+<div class="divreversewhite">
+<span style="margin-left:28%;margin-top:20%;font-family:'Comic Sans MS', cursive; font-size:26px; color:#00bff3;" id="zero">"A Designer is a planner with an architect sense."</span><br><br>
+<span style="margin-left:45%;font-family:Comic Sans MS', cursive;font-size:16px; color:#8B8B8B;">- Rachael Green</span>
+</div><!--end of divreversewhite-->
+</div><!--end of dividwhite-->
+<div class="divid1"><img src="images/hh.jpg" width="100%" height="750px">
+<div class="divreverse1"><span style="margin-left:8%;margin-top:10%;font-family:'Comic Sans MS', cursive; font-size:28px; color:#FFF;"><b>O--- WHAT WE OFFER</b></span>
+<div style="clear:both;"></div>
+
+<div class="hexagon2" style="z-index:1; margin-top:80px; margin-left:13%;  float:left;"><div style=" z-index:99;" class="hexagon3">
+<i style="font-size:40px; margin-top:10px; margin-left:25px;" class="fa fa-car" aria-hidden="true"></i></div></div>
+
+<div class="hexagon2" style="z-index:1; margin-top:80px; margin-left:13%; float:left;"><div style=" z-index:99;" class="hexagon3">
+<i style="font-size:40px; margin-top:10px; margin-left:25px;" class="fa fa-graduation-cap" aria-hidden="true"></i></div></div>
+<div class="hexagon2" style="z-index:1; margin-top:80px; margin-left:13%; float:left;"><div style=" z-index:99;" class="hexagon3"><i style="font-size:40px; margin-top:10px; margin-left:28px;" class="fa fa-sign-language" aria-hidden="true"></i></div></div>
+<div class="hexagon2" style="z-index:1; margin-top:80px; margin-left:13%; float:left;"><div style=" z-index:99;" class="hexagon3"><i style="font-size:40px; margin-top:10px; margin-left:28px;" class="fa fa-life-ring" aria-hidden="true"></i></div></div>
+<div style="clear:both;"></div>
+
+<font style="display:block; font-size:16px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff; margin-left:15%; margin-top:50px;float:left;">Services</font>
+<font style="display:block; font-size:16px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff; margin-left:16%; margin-top:50px;float:left;">Opportunities</font>
+<font style="display:block; font-size:16px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff; margin-left:15.2%; margin-top:50px;float:left;">Research</font>
+<font style="display:block; font-size:16px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff; margin-left:17%; margin-top:50px;float:left;">Support</font>
+
+
+<div class="hexagon2" style="z-index:1; margin-top:8%; margin-left:13%;  float:left;"><div style=" z-index:99;" class="hexagon3"><i style="font-size:40px; margin-top:10px; margin-left:23px;" class="fa fa-tripadvisor" aria-hidden="true"></i></div></div>
+<div class="hexagon2" style="z-index:1; margin-top:8%; margin-left:13%; float:left;"><div style=" z-index:99;" class="hexagon3"><i style="font-size:40px; margin-top:10px; margin-left:33px;" class="fa fa-pagelines" aria-hidden="true"></i></div></div>
+
+<div style="margin-left:57%; margin-top:12%;width:31%; height:200px;">
+<font style="display:block; font-size:20px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff;">O-- CONCLUSION<br><br></font>
+<font style="display:block; font-size:16px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff;">This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.</font>
+</div>
+
+<div style="clear:both;"></div>
+
+<font style="display:block; font-size:16px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff; margin-left:14.2%; margin-top:-60px;float:left;">TripAdvisor</font>
+<font style="display:block; font-size:16px; font-family:'Comic Sans MS', cursive;; font-weight:bold; color:#fff; margin-left:36.2%; margin-top:-60px;float:left;">EcoFriendly</font>
+
+
+</div>
+<div style="margin-left:47%;; z-index:99999 !important; position:absolute; margin-top:735px" class="di" > <a href="#first"><img src="images/d1.png" alt="" /></a> </div>
+
+</div><!--end of divid1-->
+
+<div class="dividwhite">
+<div class="divreversewhite" style="float:left" >
+<span style="margin-left:8%;margin-top:25%;font-family:'Comic Sans MS', cursive; font-size:22px; color:#00bff3;" id="first">“I think there is beauty in everything.What ‘normal’ people would perceive</span><br><br>
+<span style="margin-left:8%;margin-top:25%;font-family:'Comic Sans MS', cursive; font-size:22px; color:#00bff3;"> as ugly, I can usually see something of beauty in it.” — Alexander McQueen</span></div>
+<input type="button" value="Quotes" class="button di" style="margin-left:15%; float:right; margin-right:15%; margin-top:-9%" >
+<!--end of divreversewhite-->
+</div><!--end of dividwhite-->
+
+<div class="divid1"><img src="images/laptop.jpg" width="100%" height="750px">
+<div class=" divreverse1">
+<span style="margin-left:8%;margin-top:10%;font-family:'Comic Sans MS', cursive; font-size:28px; color:#FFF;"><b>O--- OUR PROJECTS</b></span>
+<div style="clear:both;"></div>
+ <div class="hexagon4 hexagon5" style="margin-left:2%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+ <div class="hexagon4 hexagon5" style="margin-left:-7.5%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+<div class="hexagon4 hexagon5" style="margin-left:-7.5%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+<div class="hexagon4 hexagon5" style="margin-left:-7.5%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+
+<div style="clear:both;"></div>
+ <div class="hexagon4 hexagon5" style="margin-left:2%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+ <div class="hexagon4 hexagon5" style="margin-left:-7.5%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+<div class="hexagon4 hexagon5" style="margin-left:-7.5%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+<div class="hexagon4 hexagon5" style="margin-left:-7.5%; margin-top:4%; float:left;"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+
+</div><div style="margin-left:47%;; z-index:99999 !important; position:absolute; margin-top:735px" class="di" > <a href="#third"><img src="images/d1.png" alt="" /></a> </div></div>
+
+<div class="dividwhite">
+<div class="divreversewhite">
+<span style="margin-left:14%;margin-top:20%;font-family:'Comic Sans MS', cursive; font-size:26px; color:#00bff3;" id="third">"Try not to become a man of success, but rather try to become a man of value"</span><br><br>
+<span style="margin-left:45%;font-family:Comic Sans MS', cursive;font-size:16px; color:#8B8B8B;">- Albert Einstein</span>
+</div><!--end of divreversewhite-->
+</div><!--end of dividwhite-->
+
+<div class="divid1"><img src="images/mm.jpg" width="100%" height="750px">
+<div class=" divreverse1">
+<span style="margin-left:8%;margin-top:10%;font-family:'Comic Sans MS', cursive; font-size:28px; color:#FFF;"><b>O--- LATEST NEWS</b></span>
+<div style="clear:both;"></div>
+<div class="box" style="margin-top:4%; margin-left:8%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+<div class="box" style=" margin-left:8%; margin-top:4%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+<div class="box" style=" margin-left:8%; margin-top:4%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+<div class="box" style=" margin-left:8%; margin-top:4%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+
+<div style="clear:both;"></div>
+<div class="box" style="margin-top:4%; margin-left:8%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+<div class="box" style=" margin-left:8%; margin-top:4%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+<div class="box" style=" margin-left:8%; margin-top:4%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+<div class="box" style=" margin-left:8%; margin-top:4%; float:left">
+<div class="stay-in-place"><img src="images/yy.jpe"  width="100%" height="100%" alt=""></div>
+
+<div class="move-in-to-place">
+<h2 style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">AROUND THE WORLD</h2>
+<p style="color:#FFFFFF; font-family:'Open Sans', serif; margin-left:20px; margin-top:10px;">Lorem ipsum tore iska tro ji ka.Lorem ipsum tore iska tro ji ka.</p>
+</div></div>
+
+</div><div style="margin-left:47%;; z-index:99999 !important; position:absolute; margin-top:735px" class="di" > <a href="#second"><img src="images/d1.png" alt="" /></a> </div></div>
+
+<div class="dividwhite">
+<div class="divreversewhite" style="float:left" >
+<span style="margin-left:8%;margin-top:25%;font-family:'Comic Sans MS', cursive; font-size:22px; color:#00bff3;" id="second">"Content precedes design. Design content is given by the number of</span><br><br>
+<span style="margin-left:8%;margin-top:25%;font-family:'Comic Sans MS', cursive; font-size:22px; color:#00bff3;">in the absence of content is not design, it’s decoration." - Lewis Dylan</span></div>
+<input type="button" value="Click" class="button di" style="margin-left:15%; float:right; margin-right:15%; margin-top:-9%" >
+<!--end of divreversewhite-->
+</div><!--end of dividwhite-->
+
+<div class="divid1"><img src="images/pp.jpg" width="100%" height="750px">
+<div class=" divreverse1">
+<span style="margin-left:8%;margin-top:10%;font-family:'Comic Sans MS', cursive; font-size:28px; color:#FFF;"><b>O--- CONTACT US</b></span>
+<div style="clear:both;"></div>
+
+<div style="width:500px; height:700px; float:left">
+<div style="margin-left:130px; margin-top:50px; " ><font style="font-family:'Comic Sans MS', cursive; font-weight:lighter; font-size:17px; color:#fff; display:block; width:450px">This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.This is just sample text.</font> 
+<div style="margin-top:50px; width:500px">
+<form>
+<input type="text" placeholder="First Name" class="p2" >
+<input type="text" placeholder="Last Name" class="p2" style="margin-left:15px">
+<input type="text" placeholder="Subject" class="p3" >
+<input type="text" placeholder="Message" class="p4">
+ <div style="margin-right:7%;  float:right; margin-top: 20px ">
+<input type="button" class="button" value="Submit"/>
+
+</div>
+</form></div></div></div>
+
+</div></div>
+<div style="clear:both"></div>
+ <div style="width:100%; height:300px; background:#00bff3; position:absolute; z-index:99999; margin-top:-100px">
+  <div style="margin-left:47%;; z-index:999 !important; position:absolute; margin-top:-25px" > <a href="#fourth"><img src="images/d1.png" alt="" /></a> </div>
+  <div style="clear:both; margin-bottom:3%"></div>
+<a href="#" style="margin-left:-25%; margin-top:50px;">
+  <span class="hb hb-sm spin-icon"><i class="fa fa-facebook"></i></span>
+</a>
+<a href="#" ><span class="hb hb-sm spin-icon"><i class="fa fa-twitter"></i></span></a> 
+<a href="#"><span class="hb hb-sm spin-icon"><i class="fa fa-google-plus-official"></i></span></a> 
+<a href="#"><span class="hb hb-sm spin-icon"><i class="fa fa-glide"></i></span></a>
+<a href="#"><span class="hb hb-sm spin-icon"><i class="fa fa-instagram"></i></span></a> 
+<font style="font-family:'Comic Sans MS', cursive; font-weight:lighter; font-size:20px; color:#fff; display:block; margin-left:42%; margin-top:120px; float:left">Created By</font><a href="#"><font style="font-family:'Comic Sans MS', cursive; font-weight:lighter; font-size:20px; color:#fff; display:block; margin-top:120px;float:left; margin-left:5px"> @Harshita Singh</font> </a>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("clic").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("clic").style.marginLeft = "0";
+}
+</script>
+ <script>
+$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+</body>
+</html>
